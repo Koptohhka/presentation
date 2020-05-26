@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<p>Introduction in</p>
+				<h1 style="text-transform: none;
+				color: #294E80;">TypeScript</h1>
+				<p>programming language</p>
+			</section>
+			<section>
+				<a style="color: #294E80" href="https://www.typescriptlang.org/">https://www.typescriptlang.org/</a> -
+				TypeScript official website
+			</section>
+			<section>
+				<h4 style="text-transform: none;">Installing TypeScript support on your PC</h4>
+				<p>for windows</p>
+				<pre>
+						<code>
+  	npm install -g typescript
+						</code>
+					</pre>
+				<p>for macOS</p>
+				<pre>
+						<code>
+  	sudo npm install -g typescript
+						</code>
+					</pre>
+			</section>
+			<section>
+				<p>
+					Files with the extension .ts we must compile into files with the extension .js using the following
+					command in the console
+				</p>
+				<pre>
+					<code>
+	tsc filename.ts
+					</code>
+				</pre>
+			</section>
+			<!--<section>
+				<p>For both .ts and .js files to work correctly, you must write this command to the .ts file</p>
+				<pre>
+					<code class="language-typescript">
+	export {};		
+					</code>
+				</pre>
+			</section>-->
+			<section>
+				<p><span style="color: #294E80">TypeScript</span> code examples</p>
+			</section>
+			<section>
+				<h4 style="text-transform: none;">Data Types in <span style="color: #294E80">TypeScript</span></h4>
+			</section>
+			<section>
+				<p>Primitive data types</p>
+				<pre>
+					<code class="language-typescript">
+  const booleanVar: boolean = true;
+  const integerVar: number = 43;
+  const stringVar: string = 'Hello, ts!';
+  const nullVar:null = null;
+  const undefinedVar:undefined = undefined;
+
+  const anyTypeVar1:any = 'str'; //it var may be any type
+  const anyTypeVar2 = true;// this var have any type too
+					</code>
+				</pre>
+			</section>
+			<section>
+				<p>Complex data types</p>
+				<pre>
+					<code class="language-typescript">
+  const arrayVar: any[] = [1, 'string', true, null, undefined];
+  const NumberArray: number[] = [1, 1, 2, 3, 5, 8, 13];
+  const stringArray: string[] = ['amigo', 'hola'];
+
+  const arrayVar2:Array = [1, 'string', true, null, undefined];
+  let predefinedArray: [number, number, boolean, string] = 
+  [5, 5, false, 'ヽ(・∀・)ﾉ'];
+
+  // this re-declaration of the variable 
+  //predefinedArray is not valid, 
+  //because in the cell with index 1 the data type string
+  //does not match the data type number
+  predefinedArray = [5, '(￣︿￣)', true, '＼(￣▽￣)／'];
+					</code>
+				</pre>
+			</section>
+			<section>
+				<p>Custom data types</p>
+				<pre>
+					<code class="language-typescript">
+   //keyword "type" 
+   type numberAndStringType = string | number;
+   // | - logical operator or
+   
+   let anyStringVar:numberAndStringType = 'string';
+   anyStringVar = 10;
+   //valid redeclaration of a variable
+   
+   let anyVar:string = 'string';
+   anyVar = 20;
+   //This is mistake
+					</code>
+					</pre>
+			</section>
+			<section>
+				<p>Predefined data values</p>
+				<pre>
+					<code>
+   type amigoGreetings = 'Hola, amigo!' | 'Hello, amigo!' | 
+   'Здарова, амиго!';
+   const amigoGreet1:amigoGreetings = 'Hola, amigo!';
+   const amigoGreet2:amigoGreetings = 'Hello, amigo!';
+   
+   //The compiler will give an error here
+   const amigoGreet2:amigoGreetings = 'Hallo Freund';	
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h4 style="text-transform: none;">Interfaces in the <span style="color: #294E80">TypeScript</span></h4>
+			</section>
+			<section>
+				<p>
+					<b style="color: #294E80;
+					font-style: italic;">An interface</b> is a programming structure/syntax that allows
+					the
+					computer to enforce certain
+					properties on an object (class). For example, say we have a car class and a scooter class and a
+					truck class. Each of these three classes should have a start_engine() action.
+				</p>
+			</section>
+			<section>
+				<pre>
+					<code class="language-typescript">
+    //Keyword "interface"
+	interface currentWeatherInterface {
+		currentTemperature: number,
+		currentWeatherDescription: string,
+		getCurrentTemperature: () => number,
+		moreInfo: {
+			humidity: number,
+			windSpeed: string;
+		} 
+	}
+
+	//following object
+	const todayWeatherObj:currentWeatherInterface = {
+		currentTemperature: 17,
+		currentWeatherDescription: 'cloudy',
+		getCurrentTemperature: () => {
+			return this.currentTemperature;
+		},
+		moreInfo: {
+			humidity: 83,
+			windSpeed: '2 m/s'
+		}
+	}
+					</code>
+				</pre>
+			</section>
+			<!--<section>
+				<h4 style="text-transform: none;">Classes in the <span style="color: #294E80">TypeScript</span></h4>
+			</section>-->
+			<section>
+				<table>
+					<tr>
+						<th><span style="color: #294E80">TypeScript</span> Type</th>
+						<th><span style="color: #294E80">TypeScript</span> interface</th>
+					</tr>
+					<tr>
+						<td>Cannot be implemented by class, only declared</td>
+						<td>May be implemented by class</td>
+					</tr>
+					<tr>
+						<td>Allows you to create a new name for a data type</td>
+						<td>Provides a way to define entities</td>
+					</tr>
+				</table>
+			</section>
+			<section>
+				<p><span style="color: #294E80">TypeScript</span> Functions</p>
+			</section>
+			<section>
+				<pre>
+				<code>
+   function consoleMessage(message:string):void {
+   	console.log(`Now you can see ${message} in your console`);
+   }
+   
+   function toSummNumber(x:number, y:number):number {
+   	return x + y;
+   }
+				</code>
+				
+				</pre>
+			</section>
+			<section>
+				<a style="color: #294E80" href="https://www.typescriptlang.org/">https://www.typescriptlang.org/play/</a> -
+				TypeScript demo
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
